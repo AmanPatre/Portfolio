@@ -58,7 +58,7 @@ export default function HeroSection() {
   });
 
   return (
-    <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: "80px" }}>
+    <section className="hero-section" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: "80px" }}>
       <div className="container-main" style={{ position: "relative", zIndex: 3, width: "100%" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center" }} className="hero-grid">
           {/* LEFT */}
@@ -91,6 +91,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div variants={fade(5)} initial="hidden" animate="visible"
+              className="hero-cta-row"
               style={{ display: "flex", gap: "0.85rem", flexWrap: "wrap" }}>
               <Link href="/node"
                 style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.4rem", background: "var(--accent)", color: "#04080f", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", borderRadius: "8px", transition: "all 0.2s ease" }}
@@ -131,13 +132,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 992px) {
-          .hero-grid { grid-template-columns: 1fr !important; text-align: center; }
-          .hero-grid > div:first-child { align-items: center; }
-          .helmet-wrapper { margin-top: 2rem; }
-        }
-      `}</style>
+
     </section>
   );
 }

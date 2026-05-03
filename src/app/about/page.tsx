@@ -94,7 +94,6 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-      <style>{`@media (max-width: 768px) { .about-page-grid { grid-template-columns: 1fr !important; } }`}</style>
     </div>
   );
 }

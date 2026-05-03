@@ -14,13 +14,13 @@ export default function Globe3D() {
     const mount = mountRef.current;
     if (!mount) return;
 
-    const W = mount.clientWidth;
-    const H = mount.clientHeight;
+    let W = mount.clientWidth;
+    let H = mount.clientHeight;
 
     // Scene
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 1000);
-    camera.position.z = 2.8;
+    camera.position.z = W < 600 ? 3.4 : 2.8;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(W, H);
@@ -185,11 +185,12 @@ export default function Globe3D() {
     // Resize
     function onResize() {
       if (!mount) return;
-      const w = mount.clientWidth;
-      const h = mount.clientHeight;
-      camera.aspect = w / h;
+      W = mount.clientWidth;
+      H = mount.clientHeight;
+      camera.aspect = W / H;
+      camera.position.z = W < 600 ? 3.4 : 2.8;
       camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
+      renderer.setSize(W, H);
     }
     window.addEventListener("resize", onResize);
 
@@ -210,7 +211,7 @@ export default function Globe3D() {
   }, []);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "420px" }}>
+    <div style={{ position: "relative", width: "100%", height: "100%" }}>
       {/* Emerald glow behind globe */}
       <div
         style={{

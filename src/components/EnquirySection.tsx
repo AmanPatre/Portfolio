@@ -104,7 +104,6 @@ export default function EnquirySection() {
           </motion.form>
         </div>
       </div>
-      <style>{`@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr !important; } }`}</style>
     </section>
   );
 }

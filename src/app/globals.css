@@ -260,6 +260,14 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 1.5rem;
 }
 
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
 /* ─── Cursor blink (kept for forms only) ─── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -292,8 +300,172 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
 }
 
+/* ═══════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   lg: ≤1024px  md: ≤768px  sm: ≤640px  xs: ≤480px
+═══════════════════════════════════════════ */
+
+/* ─── Large tablet (≤1024px) ─── */
+@media (max-width: 1024px) {
+  .container-main {
+    padding: 0 1.25rem;
+  }
+}
+
+/* ─── Tablet / large mobile (≤768px) ─── */
 @media (max-width: 768px) {
   .section-pad {
-    padding: 3rem 0;
+    padding: 2.75rem 0;
+  }
+
+  .container-main {
+    padding: 0 1rem;
+  }
+
+  /* Hero grid → single column */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  .hero-grid > div:first-child {
+    align-items: center;
+  }
+  .helmet-wrapper {
+    margin-top: 1.5rem;
+  }
+
+  /* About snapshot & about page grids */
+  .about-snap-grid,
+  .about-page-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Contact grid */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Skills page */
+  .globe-wrapper {
+    height: 280px !important;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Projects grid: force single column on small screens */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Node page chat bubbles */
+  .chat-bubble {
+    max-width: 90% !important;
+  }
+
+  /* Footer: stack vertically and center */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center;
+    gap: 1rem;
+  }
+  .footer-inner > div {
+    justify-content: center;
+  }
+}
+
+/* ─── Small mobile (≤640px) ─── */
+@media (max-width: 640px) {
+  .section-pad {
+    padding: 2.25rem 0;
+  }
+
+  .footer-padding {
+    padding: 1.5rem 0.875rem !important;
+  }
+
+  .container-main {
+    padding: 0 0.875rem;
+  }
+
+  /* Hero padding */
+  .hero-section {
+    padding-top: 70px;
+  }
+
+  /* Experience cards: stack meta info */
+  .exp-meta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .exp-meta-right {
+    align-items: flex-start !important;
+  }
+
+  /* Node suggestions: wrap tighter */
+  .node-suggestions {
+    gap: 0.4rem;
+  }
+  .node-suggestion-btn {
+    font-size: 0.62rem !important;
+    padding: 0.35rem 0.65rem !important;
+  }
+
+  /* Terminal input: ensure full width */
+  .terminal-input {
+    font-size: 0.85rem;
+  }
+
+  /* Gallery masonry: 2 columns */
+  .gallery-masonry {
+    columns: 2 !important;
+  }
+
+  /* Credential grid: 1 column */
+  .credentials-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Extra small (≤480px) ─── */
+@media (max-width: 480px) {
+  .container-main {
+    padding: 0 0.75rem;
+  }
+
+  /* Section headings */
+  h1 { font-size: clamp(1.75rem, 8vw, 2.5rem) !important; }
+  h2 { font-size: clamp(1.5rem, 6vw, 2rem) !important; }
+
+  /* Hero buttons: stack on very small screens */
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+  .hero-cta-row a {
+    justify-content: center;
+  }
+
+  /* Gallery: single column */
+  .gallery-masonry {
+    columns: 1 !important;
+  }
+
+  /* Stats bar wrap */
+  .stats-bar {
+    gap: 1rem !important;
+  }
+
+  /* Node input bar */
+  .node-input-bar {
+    padding: 0.75rem !important;
+  }
+  .node-send-btn {
+    padding: 0.65rem 0.9rem !important;
+    font-size: 0 !important; /* hide text, keep icon */
+  }
+  .node-send-btn svg {
+    margin: 0 !important;
   }
 }

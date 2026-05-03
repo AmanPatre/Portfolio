@@ -124,7 +124,9 @@ export default function NodePage() {
                 </span>
                 {msg.role === "user" && <User size={12} style={{ color: "var(--text-muted)" }} />}
               </div>
-              <div style={{
+              <div
+                className="chat-bubble"
+                style={{
                 maxWidth: "75%",
                 padding: "0.85rem 1.1rem",
                 background: msg.role === "assistant" ? "rgba(0,210,255,0.05)" : "rgba(255,255,255,0.06)",
@@ -159,9 +161,10 @@ export default function NodePage() {
 
           {/* Suggestions */}
           {messages.length === 1 && (
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.5rem" }}>
+            <div className="node-suggestions" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.5rem" }}>
               {SUGGESTIONS.map((s) => (
                 <button key={s} onClick={() => sendMessage(s)}
+                  className="node-suggestion-btn"
                   style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", padding: "0.4rem 0.8rem", background: "rgba(0,210,255,0.05)", border: "1px solid rgba(0,210,255,0.2)", borderRadius: "4px", color: "var(--accent2)", cursor: "pointer", transition: "all 0.2s ease" }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(0,210,255,0.1)"; (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(0,210,255,0.05)"; (e.currentTarget as HTMLElement).style.color = "var(--accent2)"; }}>
@@ -176,7 +179,7 @@ export default function NodePage() {
       </div>
 
       {/* Input bar */}
-      <div style={{ borderTop: "1px solid var(--border)", background: "rgba(5,10,6,0.95)", backdropFilter: "blur(16px)", padding: "1rem 1.5rem" }}>
+      <div className="node-input-bar" style={{ borderTop: "1px solid var(--border)", background: "rgba(5,10,6,0.95)", backdropFilter: "blur(16px)", padding: "1rem 1.5rem" }}>
         <div className="container-main" style={{ maxWidth: "760px" }}>
           <form onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
             style={{ display: "flex", gap: "0.75rem" }}>
@@ -189,6 +192,7 @@ export default function NodePage() {
               style={{ flex: 1, borderRadius: "4px" }}
             />
             <button type="submit" disabled={loading || !input.trim()}
+              className="node-send-btn"
               style={{ display: "flex", alignItems: "center", gap: "0.4rem", padding: "0.75rem 1.25rem", background: "var(--accent)", color: "#050a06", fontFamily: "var(--font-mono)", fontSize: "0.75rem", fontWeight: 700, border: "none", borderRadius: "4px", cursor: loading || !input.trim() ? "not-allowed" : "pointer", opacity: loading || !input.trim() ? 0.5 : 1, transition: "all 0.2s", whiteSpace: "nowrap" }}>
               <Send size={13} /> send ↵
             </button>

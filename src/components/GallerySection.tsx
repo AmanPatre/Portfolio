@@ -14,7 +14,7 @@ export default function GallerySection({ images }: { images: Image[] }) {
 
   return (
     <>
-      <div style={{ columns: "3 200px", gap: "1rem" }}>
+      <div className="gallery-masonry" style={{ columns: "3 200px", gap: "1rem" }}>
         {placeholders.map((img, i) => (
           <motion.div
             key={i}

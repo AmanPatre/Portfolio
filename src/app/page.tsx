@@ -36,7 +36,7 @@ export default function HomePage() {
               View all →
             </Link>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "1.25rem" }}>
+          <div className="projects-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1.25rem" }}>
             {featured.map((p, i) => <ProjectCard key={p.id} project={p} index={i} />)}
           </div>
         </div>
@@ -86,7 +86,6 @@ export default function HomePage() {
             </motion.div>
           </div>
         </div>
-        <style>{`@media (max-width: 768px) { .about-snap-grid { grid-template-columns: 1fr !important; } }`}</style>
       </section>
 
       {/* EXPERIENCE */}
@@ -100,12 +99,12 @@ export default function HomePage() {
             {EXPERIENCE.map((exp, i) => (
               <motion.div key={exp.id} {...fade(i)}
                 style={{ padding: "1.5rem 1.75rem", background: "rgba(12,16,24,0.8)", backdropFilter: "blur(16px)", border: "1px solid var(--border)", borderLeft: "2px solid var(--accent)", borderRadius: "10px" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.85rem" }}>
+                <div className="exp-meta" style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.85rem" }}>
                   <div>
                     <h3 style={{ fontSize: "1rem", fontWeight: 700, letterSpacing: "-0.01em" }}>{exp.role}</h3>
                     <span style={{ fontSize: "0.82rem", fontWeight: 500, color: "var(--accent2)" }}>{exp.company}</span>
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.25rem" }}>
+                  <div className="exp-meta-right" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.25rem" }}>
                     <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "var(--text-muted)" }}>{exp.duration}</span>
                     <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", padding: "0.1rem 0.5rem", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{exp.type}</span>
                   </div>

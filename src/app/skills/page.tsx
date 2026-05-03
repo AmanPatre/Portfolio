@@ -72,12 +72,6 @@ export default function ForgePage() {
           </div>
         </div>
       </div>
-      <style>{`
-        @media (max-width: 768px) { 
-          .globe-wrapper { height: 320px !important; }
-          .skills-grid { grid-template-columns: 1fr !important; } 
-        }
-      `}</style>
     </div>
   );
 }

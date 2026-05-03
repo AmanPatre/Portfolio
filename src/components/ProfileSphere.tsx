@@ -170,7 +170,7 @@ export default function ProfileSphere({ photoSrc, photoAlt = "Aman Patre" }: Pro
   }, []);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "480px" }}>
+    <div className="profile-sphere-wrap" style={{ position: "relative", width: "100%", height: "480px" }}>
       {/* Multi-layer ambient glow */}
       <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 0 }}>
         <div style={{ position: "absolute", width: "420px", height: "420px", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,180,255,0.1) 0%, rgba(0,60,200,0.05) 50%, transparent 72%)", filter: "blur(30px)" }} />
@@ -349,6 +349,17 @@ export default function ProfileSphere({ photoSrc, photoAlt = "Aman Patre" }: Pro
         @keyframes ps-spin-rev { to { transform: rotate(-360deg); } }
         @keyframes ps-blink    { 0%,100%{opacity:1} 50%{opacity:0.2} }
         @keyframes ps-flicker  { 0%,90%,95%,100%{opacity:1} 92%{opacity:0.3} }
+
+        /* Responsive: shrink sphere on mobile */
+        @media (max-width: 768px) {
+          .profile-sphere-wrap { height: 340px !important; }
+        }
+        @media (max-width: 480px) {
+          .profile-sphere-wrap { height: 280px !important; }
+          .ps-ring-spin { width: 130px; height: 130px; }
+          .ps-hud-key { font-size: 7px; }
+          .ps-hud-val { font-size: 8px; }
+        }
       `}</style>
     </div>
   );

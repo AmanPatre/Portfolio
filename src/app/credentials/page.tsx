@@ -34,7 +34,7 @@ export default function CredentialsPage() {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1.25rem" }}>
+        <div className="credentials-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "1.25rem" }}>
           {CREDENTIALS.map((cred, i) => <CredentialCard key={cred.id} cred={cred} index={i} />)}
         </div>
       </div>
