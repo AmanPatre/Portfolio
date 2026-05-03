@@ -14,7 +14,7 @@ export default function ResumePage() {
         <div style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem" }}>
           <div>
             <span className="section-label">Resume</span>
-            <h1 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800 }}>Curriculum Vitae</h1>
+            <h1 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800 }}>Resume</h1>
           </div>
           
           <a
