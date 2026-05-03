@@ -16,28 +16,35 @@ const TECH_PILLS = ["React", "Next.js", "TypeScript", "Node.js", "Express.js", "
 function useTypewriter(words: string[], speed = 65, pause = 1800) {
   const [text, setText] = useState("");
   const [wordIdx, setWordIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [deleting, setDeleting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const current = words[wordIdx];
-    const s = deleting ? 35 : speed;
     let timeout: ReturnType<typeof setTimeout>;
-    if (!deleting && charIdx <= current.length) {
-      timeout = setTimeout(() => {
-        setText(current.slice(0, charIdx));
-        setCharIdx(charIdx + 1);
-        if (charIdx === current.length) setTimeout(() => setDeleting(true), pause);
-      }, s);
-    } else if (deleting && charIdx >= 0) {
-      timeout = setTimeout(() => {
-        setText(current.slice(0, charIdx));
-        setCharIdx(charIdx - 1);
-        if (charIdx === 0) { setDeleting(false); setWordIdx((wordIdx + 1) % words.length); }
-      }, s);
+    const currentWord = words[wordIdx];
+
+    if (isDeleting) {
+      if (text === "") {
+        setIsDeleting(false);
+        setWordIdx((prev) => (prev + 1) % words.length);
+      } else {
+        timeout = setTimeout(() => {
+          setText(currentWord.substring(0, text.length - 1));
+        }, speed / 1.5);
+      }
+    } else {
+      if (text === currentWord) {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, pause);
+      } else {
+        timeout = setTimeout(() => {
+          setText(currentWord.substring(0, text.length + 1));
+        }, speed);
+      }
     }
+
     return () => clearTimeout(timeout);
-  }, [charIdx, deleting, wordIdx, words, speed, pause]);
+  }, [text, isDeleting, wordIdx, words, speed, pause]);
 
   return text;
 }

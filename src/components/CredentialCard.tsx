@@ -24,11 +24,12 @@ export default function CredentialCard({ cred, index }: { cred: Credential; inde
         transition={{ delay: index * 0.1 }}
         onClick={() => setOpen(true)}
         style={{
-          background: "rgba(10,15,11,0.8)",
-          backdropFilter: "blur(16px)",
+          background: "rgba(12,16,24,0.8)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
           border: "1px solid var(--border)",
-          borderLeft: `3px solid ${CATEGORY_COLORS[cred.category]}`,
-          borderRadius: "6px",
+          borderLeft: `2px solid ${CATEGORY_COLORS[cred.category]}`,
+          borderRadius: "8px",
           padding: "1.25rem",
           cursor: "pointer",
           transition: "all 0.2s ease",

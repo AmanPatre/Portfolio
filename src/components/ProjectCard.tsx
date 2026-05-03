@@ -15,12 +15,12 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       transition={{ duration: 0.4, delay: index * 0.08 }}
       style={{
         position: "relative",
-        background: "rgba(10,15,11,0.8)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        border: isComing ? "1px solid rgba(0,210,255,0.12)" : "1px solid var(--border)",
-        borderLeft: isComing ? "3px solid rgba(0,210,255,0.15)" : "3px solid var(--accent)",
-        borderRadius: "6px",
+        background: "rgba(12,16,24,0.8)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        border: "1px solid var(--border)",
+        borderLeft: isComing ? "2px solid rgba(0,210,255,0.15)" : "2px solid var(--accent)",
+        borderRadius: "8px",
         padding: "1.5rem",
         transition: "all 0.2s ease",
         cursor: isComing ? "default" : "pointer",

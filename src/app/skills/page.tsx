@@ -33,7 +33,7 @@ export default function ForgePage() {
             <motion.div key={cat.label}
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ delay: ci * 0.1 }}
-              style={{ padding: "1.5rem", background: "rgba(12,16,24,0.8)", backdropFilter: "blur(16px)", border: "1px solid var(--border)", borderLeft: "2px solid var(--accent)", borderRadius: "10px" }}>
+              style={{ padding: "1.5rem", background: "rgba(12,16,24,0.8)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid var(--border)", borderLeft: "2px solid var(--accent)", borderRadius: "8px" }}>
               <div style={{ marginBottom: "1.25rem" }}>
                 <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.08em" }}>{cat.label}</span>
               </div>

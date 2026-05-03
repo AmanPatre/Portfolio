@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Mail, Activity, Image as ImageIcon, Bot } from "lucide-react";
+import { Mail, Image as ImageIcon, Bot } from "lucide-react";
 import { Github, Linkedin } from "@/components/Icons";
 import { SOCIALS } from "@/lib/constants";
 
@@ -61,11 +61,6 @@ export default function Footer() {
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-muted)")}>
               <ImageIcon size={13} /> Gallery
-            </Link>
-            <Link href="/spectrum" style={linkStyle}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-muted)")}>
-              <Activity size={13} /> Monitor
             </Link>
             <Link href="/node" style={linkStyle}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text)")}

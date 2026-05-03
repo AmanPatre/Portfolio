@@ -55,7 +55,7 @@ export default function AboutPage() {
           {/* RIGHT */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
             {/* Education */}
-            <div style={{ padding: "1.5rem", background: "rgba(12,16,24,0.8)", backdropFilter: "blur(16px)", border: "1px solid var(--border)", borderLeft: "2px solid var(--accent)", borderRadius: "10px" }}>
+            <div style={{ padding: "1.5rem", background: "rgba(12,16,24,0.8)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid var(--border)", borderLeft: "2px solid var(--accent)", borderRadius: "8px" }}>
               <span style={{ fontSize: "0.68rem", fontWeight: 700, color: "var(--accent2)", textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "0.75rem" }}>Education</span>
               <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.25rem" }}>VIT Bhopal University</h3>
               <p style={{ fontSize: "0.82rem", color: "var(--accent2)", marginBottom: "0.4rem" }}>B.Tech Computer Science and Engineering</p>
@@ -63,7 +63,7 @@ export default function AboutPage() {
             </div>
 
             {/* Internship */}
-            <div style={{ padding: "1.5rem", background: "rgba(12,16,24,0.8)", backdropFilter: "blur(16px)", border: "1px solid var(--border)", borderLeft: "2px solid var(--accent)", borderRadius: "10px" }}>
+            <div style={{ padding: "1.5rem", background: "rgba(12,16,24,0.8)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid var(--border)", borderLeft: "2px solid var(--accent)", borderRadius: "8px" }}>
               <span style={{ fontSize: "0.68rem", fontWeight: 700, color: "var(--accent2)", textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "0.75rem" }}>Internship</span>
               <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.25rem" }}>Backend Intern</h3>
               <p style={{ fontSize: "0.82rem", color: "var(--accent2)", marginBottom: "0.4rem" }}>PearlThoughts</p>
