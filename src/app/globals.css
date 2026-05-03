@@ -1,26 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #04080f;
+  --bg2: #070d1a;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface2: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(0, 210, 255, 0.25);
+  --accent: #00d2ff;
+  --accent2: #0099cc;
+  --accent3: #00bfea;
+  --text: #e8f2f8;
+  --text-muted: #607a8a;
+  --font-display: "Inter", sans-serif;
+  --font-mono: "Fira Code", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 210, 255, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(0, 210, 255, 0.2);
+  color: var(--accent);
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* ─── Accent label ─── */
+.section-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+/* ─── Tech pill ─── */
+.tech-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.18rem 0.55rem;
+  background: rgba(0, 210, 255, 0.07);
+  border: 1px solid rgba(0, 210, 255, 0.15);
+  color: var(--accent2);
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Hover card lift ─── */
+.hover-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* ─── Card surface ─── */
+.card-accent {
+  border-left: 2px solid var(--accent);
+  background: rgba(12, 16, 24, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.card-surface {
+  background: rgba(12, 16, 24, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+/* ─── Pulsing border for coming soon cards ─── */
+@keyframes pulseBorder {
+  0%, 100% { border-color: rgba(0, 210, 255, 0.1); }
+  50% { border-color: rgba(0, 210, 255, 0.4); }
+}
+.pulse-border {
+  animation: pulseBorder 2.5s ease-in-out infinite;
+}
+
+/* ─── Page fade-in ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ─── Skill proficiency bar ─── */
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: var(--fill); }
+}
+
+/* ─── Status badge ─── */
+.badge-live {
+  background: rgba(0, 210, 255, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.badge-wip {
+  background: rgba(255, 165, 0, 0.08);
+  color: #ffa500;
+  border: 1px solid rgba(255, 165, 0, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.badge-oss {
+  background: rgba(100, 100, 255, 0.08);
+  color: #8888ff;
+  border: 1px solid rgba(100, 100, 255, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ─── Globe label ─── */
+.globe-label {
+  position: absolute;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.globe-label .dot {
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* ─── Terminal input ─── */
+.terminal-input {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.terminal-input:focus {
+  border-color: rgba(0, 210, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.06);
+}
+
+.terminal-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* ─── Lounge messages ─── */
+.lounge-msg-ai {
+  color: var(--accent);
+}
+
+.lounge-msg-user {
+  color: var(--text);
+}
+
+/* ─── Tree view (skills page) ─── */
+.tree-line {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.tree-branch {
+  color: var(--accent2);
+}
+
+/* ─── Section padding ─── */
+.section-pad {
+  padding: 5rem 0;
+}
+
+/* ─── Responsive container ─── */
+.container-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ─── Cursor blink (kept for forms only) ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── Nebula animation ─── */
+@keyframes nebulaDrift {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  33% { transform: translate(30px, -20px) scale(1.05); opacity: 0.6; }
+  66% { transform: translate(-20px, 30px) scale(0.95); opacity: 0.3; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+}
+
+.nebula {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: nebulaDrift ease-in-out infinite;
+}
+
+/* ─── Glow utilities ─── */
+.glow-text {
+  text-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+}
+
+.glow-border {
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding: 3rem 0;
+  }
 }
