@@ -35,20 +35,20 @@ export default function Footer() {
         zIndex: 10,
       }}
     >
-      <div className="container-main footer-padding" style={{ padding: "2rem 1.5rem" }}>
+      <div className="container-main footer-padding" style={{ padding: "1.25rem 1.5rem" }}>
         <div className="footer-inner">
           {/* Left: branding + copyright */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-            <span style={{ fontSize: "0.9rem", fontWeight: 700, letterSpacing: "-0.02em", color: "var(--text)" }}>
+          <div className="footer-col-left">
+            <span className="footer-logo">
               AmanPatre<span style={{ color: "var(--accent)" }}>.</span>
             </span>
-            <span style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>
+            <span className="footer-copy">
               © {year} Aman Patre · All rights reserved
             </span>
           </div>
 
           {/* Center: quick links */}
-          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+          <div className="footer-col-center">
             <Link href="/gallery" style={linkStyle}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-muted)")}>
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
 
           {/* Right: social links */}
-          <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
+          <div className="footer-col-right">
             <a href={SOCIALS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"
               style={iconLinkStyle}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent)")}

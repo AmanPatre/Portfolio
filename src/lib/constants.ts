@@ -6,6 +6,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "~/credentials", href: "/credentials", terminalPath: "credentials" },
   { label: "~/forge", href: "/skills", terminalPath: "forge" },
   { label: "~/persona", href: "/about", terminalPath: "persona" },
+  { label: "~/resume", href: "/resume", terminalPath: "resume" },
   { label: "~/node", href: "/node", terminalPath: "node" },
 ];
 
